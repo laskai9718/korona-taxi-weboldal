@@ -1,12 +1,29 @@
 /* fullgaleria.css - Teljes Galéria oldal */
 
 /* Alap beállítások */
+:root {
+    --primary-color: #ff0101;
+    --secondary-color: #0A61C9;
+    --text-color: #333333;
+    --bg-light: #f4f4f4;
+    --bg-card: #ffffff;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --header-height: 120px; /* A fejléced magassága */
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333333;
+    background-color: var(--bg-light);
+    color: var(--text-color);
 }
 
 h1, h2, h3 {
@@ -15,12 +32,37 @@ h1, h2, h3 {
 
 /* Navigációs sáv és gombok stílusa */
 header {
-    background-color: #ffffff;
-    color: #333333;
+    background-color: var(--bg-card);
+    color: var(--text-color);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fejléc zsugorításának stílusa */
+header.shrink {
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header.shrink .logo-container .logo-img {
+    height: 70px;
+    width: 100px;
+}
+
+header.shrink .site-title {
+    font-size: 1.8rem;
+}
+
+header.shrink nav ul {
+    gap: 15px;
+}
+
+header.shrink nav a {
+    font-size: 1rem;
+    padding: 8px 0;
 }
 
 nav {
@@ -41,12 +83,14 @@ nav {
 .logo-container .logo-img {
     height: 100px;
     width: 150px;
+    transition: height 0.3s ease, width 0.3s ease;
 }
 
 .site-title {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #333333;
+    color: var(--text-color);
+    transition: font-size 0.3s ease;
 }
 
 nav ul {
@@ -60,7 +104,7 @@ nav ul {
 nav a {
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     padding: 12px 0;
     position: relative;
     transition: all 0.3s ease;
@@ -81,27 +125,27 @@ nav a:hover::after {
 }
 
 .blue-link {
-    color: #0A61C9;
+    color: var(--secondary-color);
 }
 
 .blue-link::after {
-    background-color: #ff0101;
+    background-color: var(--primary-color);
 }
 
 .blue-link:hover {
-    color: #ff0101;
+    color: var(--primary-color);
 }
 
 .red-link {
-    color: #ff0101;
+    color: var(--primary-color);
 }
 
 .red-link::after {
-    background-color: #0A61C9;
+    background-color: var(--secondary-color);
 }
 
 .red-link:hover {
-    color: #0A61C9;
+    color: var(--secondary-color);
 }
 
 /* Galéria szekció - ÚJ DIZÁJN CSS Grid elrendezéssel */
@@ -121,7 +165,6 @@ nav a:hover::after {
 }
 
 .image-gallery-masonry {
-    /* Az "image-gallery-masonry" osztályt most Grid konténerként használjuk */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
@@ -131,12 +174,12 @@ nav a:hover::after {
 }
 
 .gallery-item {
-    display: flex; /* Flexbox a belső tartalom (kép és felirat) elrendezéséhez */
+    display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 8px;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
     cursor: pointer;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     text-align: center;
@@ -144,19 +187,19 @@ nav a:hover::after {
 
 .gallery-item:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-strong);
 }
 
 .gallery-item a {
     display: block;
-    height: 250px; /* Fix magasság a képeknek */
+    height: 250px;
     overflow: hidden;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fontos, hogy a képek kitöltsék a rendelkezésre álló helyet, vágással */
+    object-fit: cover;
     transition: transform 0.4s ease;
 }
 
@@ -169,7 +212,7 @@ nav a:hover::after {
     text-align: center;
     background-color: #f0f0f0;
     color: #444;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 500;
     border-top: 1px solid #eee;
 }
@@ -183,7 +226,7 @@ nav a:hover::after {
 
 /* Lábléc */
 footer {
-    background: linear-gradient(70deg, #0A61C9, #ff0101);
+    background: linear-gradient(70deg, var(--secondary-color), var(--primary-color));
     color: #ffffff;
     text-align: center;
     padding: 1rem 0;
@@ -216,19 +259,33 @@ body.lb-disable-scrolling {
     z-index: 9999;
 }
 
-/* Média lekérdezések */
-@media (max-width: 992px) {
-    .image-gallery-masonry {
-        column-count: 2;
-    }
+/* Vissza a lap tetejére gomb */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    .image-gallery-masonry {
-        column-count: 1;
-        padding: 0 10px;
-    }
-    .gallery-item {
-        margin-bottom: 10px;
-    }
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: var(--primary-color);
 }

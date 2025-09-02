@@ -1,19 +1,19 @@
+// AOS (Animate On Scroll) inicializálása
+AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quad',
+    once: true
+});
+
+// Lightbox beállítások
+lightbox.option({
+    'albumLabel': 'Kép %1/%2',
+    'fadeDuration': 400,
+    'resizeDuration': 600,
+    'wrapAround': true
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-
-    // AOS (Animate On Scroll) inicializálása
-    AOS.init({
-        duration: 1000,
-        easing: 'ease-out-quad',
-        once: true
-    });
-
-    // Lightbox beállítások
-    lightbox.option({
-        'albumLabel': 'Kép %1/%2',
-        'fadeDuration': 400,
-        'resizeDuration': 600,
-        'wrapAround': true
-    });
 
     // --- Fejléc zsugorítás görgetéskor ---
     const header = document.querySelector('header');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const offset = -currentGroupIndex * 100; // Eltolás %-ban
             slideshowTrack.style.transform = `translateX(${offset}%)`;
         }
-
+        
         setInterval(showNextGroup, 5000); // 5 másodpercenként vált
     }
 });
