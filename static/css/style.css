@@ -178,7 +178,20 @@ nav a:hover::after {
 .hero-text h2 { font-size: 2.8rem; color: #051821; }
 .hero-text p { font-size: 1.3rem; line-height: 1.8; }
 @media (max-width: 992px) { .hero-text h2 { font-size: 2.2rem; } .hero-text p { font-size: 1.1rem; } .hero-image { flex: 1 1 100%; max-width: 100%; } .hero-text { text-align: center; margin-top: 30px; flex: 1 1 100%; } }
-
+/* Média lekérdezések */
+@media (max-width: 992px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 /* Szolgáltatások szekció */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; text-align: center; }
 .service-item { padding: 30px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
