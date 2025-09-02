@@ -320,8 +320,36 @@ footer { background: linear-gradient(70deg, #0A61C9, #ff0101); color: #ffffff; t
 body.lb-disable-scrolling { overflow: hidden !important; }
 .lightbox { z-index: 9999; }
 /* Vissza a lap tetejére gomb */
-#back-to-top { position: fixed; bottom: 20px; right: 20px; z-index: 99; font-size: 1.1rem; border: none; outline: none; background-color: #0A61C9; color: white; cursor: pointer; padding: 15px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease; }
-#back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-#back-to-top:hover { background-color: #ff0101; }
+/* Vissza a lap tetejére gomb */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    background-color: #0A61C9;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Áttűnéses animációhoz szükséges tulajdonságok */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: #ff0101;
+}
 /* Animáció a megjelenéshez/eltűnéshez */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

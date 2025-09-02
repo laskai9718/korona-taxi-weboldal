@@ -268,12 +268,13 @@ body.lb-disable-scrolling {
     font-size: 1.1rem;
     border: none;
     outline: none;
-    background-color: var(--secondary-color);
+    background-color: #0A61C9;
     color: white;
     cursor: pointer;
     padding: 15px;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Áttűnéses animációhoz szükséges tulajdonságok */
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -287,5 +288,5 @@ body.lb-disable-scrolling {
 }
 
 #back-to-top:hover {
-    background-color: var(--primary-color);
+    background-color: #ff0101;
 }

@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function showNextGroup() {
             currentGroupIndex = (currentGroupIndex + 1) % totalGroups;
-            const offset = -currentGroupIndex * 100; // Eltolás %-ban
+            const offset = -currentGroupIndex * 100;
             slideshowTrack.style.transform = `translateX(${offset}%)`;
         }
         
-        setInterval(showNextGroup, 5000); // 5 másodpercenként vált
+        setInterval(showNextGroup, 5000);
     }
 });
