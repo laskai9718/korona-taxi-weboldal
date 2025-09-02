@@ -10,12 +10,11 @@
     --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
     --shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.15);
     --border-radius: 8px;
-    --header-height: 120px; /* A fejléced magassága */
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-height);
+    scroll-padding-top: 120px;
 }
 
 body {
@@ -50,10 +49,12 @@ header.shrink {
 header.shrink .logo-container .logo-img {
     height: 70px;
     width: 100px;
+    transition: height 0.3s ease, width 0.3s ease;
 }
 
 header.shrink .site-title {
     font-size: 1.8rem;
+    transition: font-size 0.3s ease;
 }
 
 header.shrink nav ul {
@@ -124,29 +125,12 @@ nav a:hover::after {
     width: 100%;
 }
 
-.blue-link {
-    color: var(--secondary-color);
-}
-
-.blue-link::after {
-    background-color: var(--primary-color);
-}
-
-.blue-link:hover {
-    color: var(--primary-color);
-}
-
-.red-link {
-    color: var(--primary-color);
-}
-
-.red-link::after {
-    background-color: var(--secondary-color);
-}
-
-.red-link:hover {
-    color: var(--secondary-color);
-}
+.blue-link { color: var(--secondary-color); }
+.blue-link::after { background-color: var(--primary-color); }
+.blue-link:hover { color: var(--primary-color); }
+.red-link { color: var(--primary-color); }
+.red-link::after { background-color: var(--secondary-color); }
+.red-link:hover { color: var(--secondary-color); }
 
 /* Galéria szekció - ÚJ DIZÁJN CSS Grid elrendezéssel */
 #galeria {
@@ -218,11 +202,29 @@ nav a:hover::after {
 }
 
 /* Média lekérdezések */
+@media (max-width: 992px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 600px) {
     .image-gallery-masonry {
         grid-template-columns: 1fr;
     }
+    .gallery-item a {
+        height: 200px;
+    }
 }
+
 
 /* Lábléc */
 footer {
@@ -257,36 +259,4 @@ body.lb-disable-scrolling {
 
 .lightbox {
     z-index: 9999;
-}
-
-/* Vissza a lap tetejére gomb */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    font-size: 1.1rem;
-    border: none;
-    outline: none;
-    background-color: #0A61C9;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Áttűnéses animációhoz szükséges tulajdonságok */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
-}
-
-#back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-#back-to-top:hover {
-    background-color: #ff0101;
 }

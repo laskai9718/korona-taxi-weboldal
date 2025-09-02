@@ -197,7 +197,7 @@ nav a:hover::after {
 .testimonial-card p { font-style: italic; color: #555; margin-bottom: 15px; font-size: 1rem; }
 .testimonial-card cite { display: block; text-align: right; font-weight: bold; color: #333; font-size: 1rem; }
 
-/* Galéria szekció (a főoldali előnézet) */
+/* Főoldali galéria előnézet stílusa */
 #galeria {
     background-color: #f8f9fa;
     padding: 60px 20px;
@@ -208,7 +208,6 @@ nav a:hover::after {
 }
 
 .image-gallery-preview {
-    /* Ez a "nézőke" (viewport) */
     position: relative;
     max-width: 900px;
     margin: 0 auto;
@@ -219,14 +218,12 @@ nav a:hover::after {
 }
 
 .slideshow-track {
-    /* Ez a "sín", ami az összes képsorozatot tartalmazza */
     display: flex;
     height: 100%;
     transition: transform 0.8s ease-in-out;
 }
 
 .slideshow-group {
-    /* Az egyes képcsoportok */
     flex-shrink: 0;
     width: 100%;
     display: grid;
@@ -240,7 +237,6 @@ nav a:hover::after {
 
 .gallery-preview-item {
     display: block;
-    height: 100%;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -311,6 +307,7 @@ nav a:hover::after {
 .loyalty-card-item { max-width: 400px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
 .loyalty-card-item:hover { transform: scale(1.05); }
 .loyalty-card-item img { width: 100%; height: auto; display: block; }
+
 /* Lábléc stílusa (közös stílus) */
 footer { background: linear-gradient(70deg, #0A61C9, #ff0101); color: #ffffff; text-align: center; padding: 1rem 0; margin-top: 40px; display: flex; flex-direction: column; align-items: center; }
 .social-icons { margin-top: 10px; }
@@ -321,35 +318,8 @@ body.lb-disable-scrolling { overflow: hidden !important; }
 .lightbox { z-index: 9999; }
 /* Vissza a lap tetejére gomb */
 /* Vissza a lap tetejére gomb */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    font-size: 1.1rem;
-    border: none;
-    outline: none;
-    background-color: #0A61C9;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Áttűnéses animációhoz szükséges tulajdonságok */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
-}
-
-#back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-#back-to-top:hover {
-    background-color: #ff0101;
-}
+#back-to-top { position: fixed; bottom: 20px; right: 20px; z-index: 99; font-size: 1.1rem; border: none; outline: none; background-color: #0A61C9; color: white; cursor: pointer; padding: 15px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease; }
+#back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+#back-to-top:hover { background-color: #ff0101; }
 /* Animáció a megjelenéshez/eltűnéshez */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
