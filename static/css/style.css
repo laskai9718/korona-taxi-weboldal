@@ -161,13 +161,22 @@ nav a:hover::after {
         display: none; /* Menü elrejtése */
         flex-direction: column;
         position: absolute;
-        top: 60px; /* A fejléctől lejjebb */
+        top: 120px; /* A fejléctől lejjebb */
         left: 0;
         right: 0;
         background-color: var(--bg-card);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
         z-index: 900;
+    }
+    
+    .logo-container .logo-img {
+        height: 70px;
+        width: 100px;
+    }
+
+    .site-title {
+        font-size: 1.8rem;
     }
 
     .main-nav-links.active {
@@ -178,6 +187,29 @@ nav a:hover::after {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+    }
+    
+    /* A menü háttere áttetsző legyen, ha a logó a háttér előtt van */
+    header {
+        position: relative;
+    }
+
+    /* Fejléc elrendezésének beállítása mobilon */
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo-container {
+        flex: 1 1 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .main-nav-links {
+        position: static;
+        box-shadow: none;
+        padding: 0;
     }
 }
 .blue-link { color: #0A61C9; }
