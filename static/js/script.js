@@ -38,6 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- ÚJ: Mobil menü logikája ---
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mainNavLinks = document.getElementById('main-nav-links');
+
+    if (mobileMenuToggle && mainNavLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNavLinks.classList.toggle('active');
+        });
+    }
+
     // --- ÚJ: Csúszó Galéria (Slideshow) logikája ---
     const slideshowTrack = document.querySelector('.slideshow-track');
     const slideGroups = document.querySelectorAll('.slideshow-group');
@@ -51,6 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slideshowTrack.style.transform = `translateX(${offset}%)`;
         }
         
-        setInterval(showNextGroup, 5000);
+        setInterval(showNextGroup, 5000); // 5 másodpercenként vált
     }
 });
