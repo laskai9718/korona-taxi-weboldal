@@ -90,8 +90,10 @@ nav {
 .site-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: #333333;
     transition: font-size 0.3s ease;
+    /* ÚJ: A cím mobilon kisebb legyen */
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
 }
 
 nav ul {
@@ -100,6 +102,9 @@ nav ul {
     gap: 20px;
     margin: 0;
     padding: 0;
+    /* ÚJ: A menüelemek középre igazítása mobilon */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
@@ -123,6 +128,91 @@ nav a::after {
 
 nav a:hover::after {
     width: 100%;
+}
+
+.blue-link { color: #0A61C9; }
+.blue-link::after { background-color: #ff0101; }
+.blue-link:hover { color: #ff0101; }
+.red-link { color: #ff0101; }
+.red-link::after { background-color: #0A61C9; }
+.red-link:hover { color: #0A61C9; }
+
+.mobile-menu-toggle {
+    display: none; /* Alapértelmezetten rejtve, asztali nézeten */
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.main-nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ÚJ média lekérdezések a mobil nézethez */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block; /* Hamburger gomb megjelenítése */
+    }
+
+    .main-nav-links {
+        display: none; /* Menü elrejtése */
+        flex-direction: column;
+        position: absolute;
+        top: 120px; /* A fejléctől lejjebb */
+        left: 0;
+        right: 0;
+        background-color: var(--bg-card);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        z-index: 900;
+    }
+    
+    .logo-container .logo-img {
+        height: 70px;
+        width: 100px;
+    }
+
+    .site-title {
+        font-size: 1.8rem;
+    }
+
+    .main-nav-links.active {
+        display: flex; /* Menü megjelenítése kattintásra */
+    }
+
+    .main-nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    /* A menü háttere áttetsző legyen, ha a logó a háttér előtt van */
+    header {
+        position: relative;
+    }
+
+    /* Fejléc elrendezésének beállítása mobilon */
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo-container {
+        flex: 1 1 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .main-nav-links {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+    }
 }
 
 .blue-link { color: var(--secondary-color); }
