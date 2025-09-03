@@ -29,7 +29,7 @@ h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Navigációs sáv és gombok stílusa */
+/* Navigációs sáv és gombok stílusa (ugyanaz, mint a főoldalon) */
 header {
     background-color: var(--bg-card);
     color: var(--text-color);
@@ -92,7 +92,6 @@ nav {
     font-weight: bold;
     color: #333333;
     transition: font-size 0.3s ease;
-    /* ÚJ: A cím mobilon kisebb legyen */
     font-size: clamp(1.5rem, 5vw, 2.5rem);
 }
 
@@ -102,7 +101,6 @@ nav ul {
     gap: 20px;
     margin: 0;
     padding: 0;
-    /* ÚJ: A menüelemek középre igazítása mobilon */
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -138,7 +136,7 @@ nav a:hover::after {
 .red-link:hover { color: #0A61C9; }
 
 .mobile-menu-toggle {
-    display: none; /* Alapértelmezetten rejtve, asztali nézeten */
+    display: none;
     font-size: 1.5rem;
     background: transparent;
     border: none;
@@ -154,25 +152,47 @@ nav a:hover::after {
     padding: 0;
 }
 
-/* ÚJ média lekérdezések a mobil nézethez */
+/* Mobil nézet beállításai a legördülő menühöz */
 @media (max-width: 768px) {
     .mobile-menu-toggle {
-        display: block; /* Hamburger gomb megjelenítése */
+        display: block;
     }
 
     .main-nav-links {
-        display: none; /* Menü elrejtése */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 120px; /* A fejléctől lejjebb */
+        top: 120px;
         left: 0;
         right: 0;
         background-color: var(--bg-card);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
         z-index: 900;
+        text-align: center;
     }
     
+    .main-nav-links.active {
+        display: flex;
+    }
+
+    .main-nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logo-container {
+        flex: 0 1 auto;
+        justify-content: flex-start;
+        margin-bottom: 0;
+    }
+
     .logo-container .logo-img {
         height: 70px;
         width: 100px;
@@ -182,53 +202,20 @@ nav a:hover::after {
         font-size: 1.8rem;
     }
 
-    .main-nav-links.active {
-        display: flex; /* Menü megjelenítése kattintásra */
-    }
-
-    .main-nav-links ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    /* A menü háttere áttetsző legyen, ha a logó a háttér előtt van */
+    /* A fejléc maradjon sticky, de ne legyen fix pozícióban a mobil menü miatt */
     header {
-        position: relative;
-    }
-
-    /* Fejléc elrendezésének beállítása mobilon */
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .logo-container {
-        flex: 1 1 100%;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .main-nav-links {
-        position: static;
-        box-shadow: none;
-        padding: 0;
+        position: sticky;
+        top: 0;
     }
 }
 
-.blue-link { color: var(--secondary-color); }
-.blue-link::after { background-color: var(--primary-color); }
-.blue-link:hover { color: var(--primary-color); }
-.red-link { color: var(--primary-color); }
-.red-link::after { background-color: var(--secondary-color); }
-.red-link:hover { color: var(--secondary-color); }
-
-/* Galéria szekció - ÚJ DIZÁJN CSS Grid elrendezéssel */
+/* Galéria szekció stílusa */
 #galeria {
-    background-color: #f8f9fa;
+    background-color: var(--bg-card);
     padding: 60px 20px;
     margin: 40px auto;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border-radius: var(--border-radius);
     text-align: center;
 }
 
@@ -240,7 +227,7 @@ nav a:hover::after {
 
 .image-gallery-masonry {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     justify-content: center;
     max-width: 1200px;
@@ -250,7 +237,7 @@ nav a:hover::after {
 .gallery-item {
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-card);
+    background-color: #f9f9f9;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-light);
@@ -290,31 +277,6 @@ nav a:hover::after {
     font-weight: 500;
     border-top: 1px solid #eee;
 }
-
-/* Média lekérdezések */
-@media (max-width: 992px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-    .logo-container {
-        margin-bottom: 10px;
-    }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .image-gallery-masonry {
-        grid-template-columns: 1fr;
-    }
-    .gallery-item a {
-        height: 200px;
-    }
-}
-
 
 /* Lábléc */
 footer {
