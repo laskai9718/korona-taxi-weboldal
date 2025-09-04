@@ -84,7 +84,9 @@ nav a:hover::after { width: 100%; }
 .red-link { color: var(--primary-color); }
 .red-link::after { background-color: var(--secondary-color); }
 .red-link:hover { color: var(--secondary-color); }
-
+.mobile-menu-toggle {
+    display: none;
+}
 /* Galéria szekció */
 #galeria {
     background-color: var(--bg-light); /* Az oldal háttérszínét használja */
@@ -95,7 +97,28 @@ nav a:hover::after { width: 100%; }
 }
 
 .content-container { max-width: 1200px; margin: 0 auto; }
-.image-gallery-masonry { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.image-gallery-masonry {
+    display: grid;
+    /* Alapértelmezett (desktop) nézet: 3 oszlopos rács */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Tablet nézet (1024px alatt): 2 oszlop */
+@media (max-width: 1024px) {
+    .image-gallery-masonry {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobil nézet (768px alatt): 1 oszlop */
+/* Ezt a részt a meglévő mobilos media query-d már tartalmazza,
+   de a teljesség kedvéért itt is szerepel. */
+@media (max-width: 768px) {
+    .image-gallery-masonry {
+        grid-template-columns: 1fr;
+    }
+}
 .gallery-item { display: flex; flex-direction: column; background-color: var(--bg-card); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 10px var(--shadow-light); cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; text-align: center; }
 .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--shadow-strong); }
 .gallery-item a { display: block; height: 250px; overflow: hidden; }
@@ -124,9 +147,11 @@ body.dark-mode footer { filter: brightness(85%); }
     .main-nav-links li { width: 100%; text-align: center; border-top: 1px solid var(--border-color); }
     .main-nav-links li:first-child { border-top: none; }
     .main-nav-links a { padding: 15px 0; display: block; }
-}
-.mobile-menu-toggle {
-    display: none;
+    .image-gallery-masonry {
+        /* Egyoszlopos elrendezés mobilon a jobb átláthatóságért */
+        grid-template-columns: 1fr;
+        }
+
 }
 /* Kétállású sötét mód kapcsoló stílusai */
 .theme-switch { display: flex; align-items: center; position: relative; width: 60px; height: 34px; cursor: pointer; }
@@ -144,4 +169,34 @@ input:checked + .slider:before { transform: translateX(26px); }
     nav, #galeria, .content-container {
         max-width: 90%;
     }
+}
+/* Vissza a lap tetejére gomb */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: var(--primary-color);
 }

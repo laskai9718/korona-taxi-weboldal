@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = trim($_POST["message"]);
 
     // E-mail cím, ahova az üzeneteket küldjük
-    $recipient = "laskai9718@gmail.com"; // Cseréld le a Korona Taxi e-mail címére
+    $recipient = "koronataxi130@gmail.com"; // Cseréld le a Korona Taxi e-mail címére
 
     // E-mail tárgya és tartalma
     $subject = "Új üzenet a weboldalról: $name";
