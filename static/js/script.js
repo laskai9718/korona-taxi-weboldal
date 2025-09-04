@@ -74,12 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =======================================================
-    // --- Sötét Mód Kapcsoló Logika (Kétállású kapcsolóhoz) ---
+    // --- Sötét Mód Kapcsoló Logika (VÉGLEGES JAVÍTÁS) ---
     // =======================================================
     const darkModeSwitch = document.getElementById('dark-mode-checkbox');
     const body = document.body;
 
-    // Funkció, ami beállítja a témát (CSS osztályt, logót és a kapcsoló állását)
     const applyTheme = (theme) => {
         const logoImg = document.querySelector('.logo-container .logo-img');
         const darkModeLogo = 'static/images/koronalogo2.png';
@@ -88,11 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (theme === 'dark') {
             body.classList.add('dark-mode');
             if(logoImg) logoImg.src = darkModeLogo;
-            if(darkModeSwitch) darkModeSwitch.checked = true; // A kapcsolót is bekapcsolt állásba tesszük
-        } else {
+            // Ha a téma SÖTÉT, a kapcsoló legyen KIKAPCSOLVA (a Hold oldalon)
+            if(darkModeSwitch) darkModeSwitch.checked = false;
+        } else { // light theme
             body.classList.remove('dark-mode');
             if(logoImg) logoImg.src = lightModeLogo;
-            if(darkModeSwitch) darkModeSwitch.checked = false; // A kapcsolót kikapcsolt állásba tesszük
+            // Ha a téma VILÁGOS, a kapcsoló legyen BEKAPCSOLVA (a Nap oldalon)
+            if(darkModeSwitch) darkModeSwitch.checked = true;
         }
     };
 
@@ -101,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme) {
         applyTheme(savedTheme);
     } else {
-        // Ha nincs, a rendszerbeállítást nézzük
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyTheme(prefersDark ? 'dark' : 'light');
     }
@@ -109,14 +109,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Eseményfigyelő a kapcsoló állapotának változására
     if (darkModeSwitch) {
         darkModeSwitch.addEventListener('change', () => {
-            const newTheme = darkModeSwitch.checked ? 'dark' : 'light';
+            // JAVÍTÁS: Itt fordítjuk meg a logikát!
+            // Ha a kapcsoló be van jelölve (a Nap oldalon van), akkor a téma legyen VILÁGOS.
+            const newTheme = darkModeSwitch.checked ? 'light' : 'dark';
             applyTheme(newTheme);
             localStorage.setItem('theme', newTheme);
         });
     }
 });
 
-// A window.load eseménykezelőt a DOMContentLoaded-en kívülre helyezzük
+// A window.load eseménykezelő
 window.addEventListener('load', () => {
     // --- Betöltő képernyő (preloader) elrejtése ---
     const preloader = document.getElementById('preloader');

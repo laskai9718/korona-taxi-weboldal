@@ -420,3 +420,32 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(26px);
 }
+/* ======================================================= */
+/* Reszponzív stílusok széles képernyőkhöz (1600px felett) */
+/* ======================================================= */
+@media (min-width: 1600px) {
+    /* Megnöveljük a fő tárolóelemek maximális szélességét,
+       hogy jobban kitöltsék a teret, de egy kis margót meghagyunk. */
+    nav,
+    .hero-content,
+    .services-section,
+    .testimonials-section,
+    #galeria,
+    #informaciok,
+    #torzsutas-kartya,
+    #kapcsolat,
+    #blog,
+    .content-section {
+        max-width: 90%; /* Az eddigi fix 1200px helyett */
+    }
+
+    /* A galéria előnézetét is szélesebbre vesszük, hogy arányos maradjon */
+    .image-gallery-preview {
+        max-width: 1400px;
+    }
+
+    /* A bevezető szövegek is kaphatnak kicsit több helyet */
+    .intro-text {
+        max-width: 800px;
+    }
+}
