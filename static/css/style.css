@@ -201,12 +201,79 @@ body.dark-mode footer {
 }
 
 
-@media (max-width: 992px) { .hero-text h2 { font-size: 2.2rem; } .hero-text p { font-size: 1.1rem; } .hero-image { flex: 1 1 100%; max-width: 100%; } .hero-text { text-align: center; margin-top: 30px; flex: 1 1 100%; } }
+/* Média lekérdezések a reszponzivitáshoz */
+@media (max-width: 992px) {
+    .hero-text h2 { font-size: 2.2rem; }
+    .hero-text p { font-size: 1.1rem; }
+    .hero-image { flex: 1 1 100%; max-width: 100%; }
+    .hero-text { text-align: center; margin-top: 30px; flex: 1 1 100%; }
+}
+
 @media (max-width: 768px) {
-    nav { flex-direction: column; align-items: center; gap: 10px; }
-    nav ul { flex-direction: column; align-items: center; }
-    .logo-container { flex-direction: column; }
-    .site-title { font-size: 2rem; }
+    /* A nav elrendezésének beállítása mobilra */
+    nav {
+        flex-wrap: wrap; /* Engedi, hogy a menü új sorba törjön */
+        justify-content: space-between;
+    }
+
+    .logo-container {
+        /* A logó és a cím továbbra is egy sorban marad */
+        flex-direction: row;
+    }
+    
+    .site-title {
+        font-size: 1.8rem;
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* A hamburger gomb megjelenítése */
+        order: 3; /* A gombok utánra sorolja */
+    }
+
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    /* A menü elrejtése és pozicionálása */
+    .main-nav-links {
+        display: none; /* Alapból elrejti a menüt */
+        width: 100%;
+        order: 4; /* A sor végére helyezi */
+        margin-top: 15px;
+    }
+
+    /* A lenyitott menü stílusa */
+    .main-nav-links.active {
+        display: block;
+    }
+    
+    .main-nav-links ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .main-nav-links li {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .main-nav-links li:first-child {
+        border-top: none;
+    }
+
+    .main-nav-links a {
+        padding: 15px 0;
+        display: block; /* A teljes terület kattintható */
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Szolgáltatások szekció */
