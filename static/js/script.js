@@ -74,57 +74,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =======================================================
-    // --- Sötét Mód Logika (Bővített verzió) ---
+    // --- Sötét Mód Kapcsoló Logika (Kétállású kapcsolóhoz) ---
     // =======================================================
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeSwitch = document.getElementById('dark-mode-checkbox');
     const body = document.body;
-    const logoImg = document.querySelector('.logo-container .logo-img');
-    const darkModeLogo = 'static/images/koronalogo2.png'; // Új logó sötét módhoz
-    const lightModeLogo = 'static/images/koronalogo.png'; // Eredeti logó
 
-    // Funkció, ami beállítja a témát (CSS osztályt és logót)
+    // Funkció, ami beállítja a témát (CSS osztályt, logót és a kapcsoló állását)
     const applyTheme = (theme) => {
+        const logoImg = document.querySelector('.logo-container .logo-img');
+        const darkModeLogo = 'static/images/koronalogo2.png';
+        const lightModeLogo = 'static/images/koronalogo.png';
+
         if (theme === 'dark') {
             body.classList.add('dark-mode');
             if(logoImg) logoImg.src = darkModeLogo;
+            if(darkModeSwitch) darkModeSwitch.checked = true; // A kapcsolót is bekapcsolt állásba tesszük
         } else {
             body.classList.remove('dark-mode');
             if(logoImg) logoImg.src = lightModeLogo;
+            if(darkModeSwitch) darkModeSwitch.checked = false; // A kapcsolót kikapcsolt állásba tesszük
         }
     };
 
-    // Ellenőrizzük, van-e mentett téma a böngészőben (localStorage)
+    // Ellenőrizzük, van-e mentett téma
     const savedTheme = localStorage.getItem('theme');
-
     if (savedTheme) {
-        // Ha van mentett téma, azt használjuk
         applyTheme(savedTheme);
     } else {
-        // Ha nincs mentett téma, a rendszerbeállítást nézzük
+        // Ha nincs, a rendszerbeállítást nézzük
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyTheme(prefersDark ? 'dark' : 'light');
     }
 
-    // Kattintás esemény a sötét mód gombra
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            // Megfordítjuk a jelenlegi állapotot
-            const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+    // Eseményfigyelő a kapcsoló állapotának változására
+    if (darkModeSwitch) {
+        darkModeSwitch.addEventListener('change', () => {
+            const newTheme = darkModeSwitch.checked ? 'dark' : 'light';
             applyTheme(newTheme);
-            
-            // Elmentjük az új állapotot, hogy megmaradjon
             localStorage.setItem('theme', newTheme);
         });
     }
 });
 
-// A window.load eseménykezelőt a DOMContentLoaded-en kívülre helyezzük,
-// mert a load csak az összes erőforrás (képek, stb.) betöltődése után sül el.
+// A window.load eseménykezelőt a DOMContentLoaded-en kívülre helyezzük
 window.addEventListener('load', () => {
     // --- Betöltő képernyő (preloader) elrejtése ---
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Kis késleltetés, hogy ne villanjon be a tartalom túl hamar
         setTimeout(() => {
             preloader.style.opacity = '0';
             preloader.addEventListener('transitionend', () => preloader.style.display = 'none');

@@ -351,3 +351,72 @@ body.lb-disable-scrolling { overflow: hidden !important; }
 #back-to-top:hover { background-color: var(--primary-color); }
 /* Animáció a megjelenéshez/eltűnéshez */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* Kétállású sötét mód kapcsoló stílusai (Javított) */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* A kapcsoló háttere (a sín) */
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: background-color .4s;
+}
+
+/* A mozgó kör */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform .4s;
+}
+
+/* Az ikonok közös stílusa */
+.theme-switch .fas {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    z-index: 1;
+    pointer-events: none; /* Ne zavarják a kattintást */
+}
+
+.theme-switch .moon-icon {
+    left: 9px;
+    color: var(--secondary-color);
+}
+
+.theme-switch .sun-icon {
+    right: 9px;
+    color: #FFD700;
+}
+
+/* Bekapcsolt állapot stílusai */
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
