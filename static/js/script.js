@@ -38,17 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ÚJ: Mobil menü logikája ---
+    // --- Mobil menü logikája ---
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mainNavLinks = document.getElementById('main-nav-links');
-
     if (mobileMenuToggle && mainNavLinks) {
         mobileMenuToggle.addEventListener('click', () => {
             mainNavLinks.classList.toggle('active');
         });
     }
 
-    // --- ÚJ: Csúszó Galéria (Slideshow) logikája ---
+    // --- Csúszó Galéria (Slideshow) logikája ---
     const slideshowTrack = document.querySelector('.slideshow-track');
     const slideGroups = document.querySelectorAll('.slideshow-group');
     if (slideshowTrack && slideGroups.length > 1) {
@@ -61,6 +60,74 @@ document.addEventListener('DOMContentLoaded', () => {
             slideshowTrack.style.transform = `translateX(${offset}%)`;
         }
         
-        setInterval(showNextGroup, 5000); // 5 másodpercenként vált
+        setInterval(showNextGroup, 5000);
+    }
+
+    // --- E-mail küldés visszajelzés ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const isSuccess = urlParams.get('success');
+
+    if (isSuccess === 'true') {
+        alert('Köszönjük! Az üzenet sikeresen elküldve.');
+    } else if (isSuccess === 'false') {
+        alert('Hiba történt az üzenet elküldése során. Kérjük, próbálja újra.');
+    }
+
+    // =======================================================
+    // --- Sötét Mód Logika (Bővített verzió) ---
+    // =======================================================
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    const logoImg = document.querySelector('.logo-container .logo-img');
+    const darkModeLogo = 'static/images/koronalogo2.png'; // Új logó sötét módhoz
+    const lightModeLogo = 'static/images/koronalogo.png'; // Eredeti logó
+
+    // Funkció, ami beállítja a témát (CSS osztályt és logót)
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            if(logoImg) logoImg.src = darkModeLogo;
+        } else {
+            body.classList.remove('dark-mode');
+            if(logoImg) logoImg.src = lightModeLogo;
+        }
+    };
+
+    // Ellenőrizzük, van-e mentett téma a böngészőben (localStorage)
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) {
+        // Ha van mentett téma, azt használjuk
+        applyTheme(savedTheme);
+    } else {
+        // Ha nincs mentett téma, a rendszerbeállítást nézzük
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    // Kattintás esemény a sötét mód gombra
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            // Megfordítjuk a jelenlegi állapotot
+            const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            applyTheme(newTheme);
+            
+            // Elmentjük az új állapotot, hogy megmaradjon
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+});
+
+// A window.load eseménykezelőt a DOMContentLoaded-en kívülre helyezzük,
+// mert a load csak az összes erőforrás (képek, stb.) betöltődése után sül el.
+window.addEventListener('load', () => {
+    // --- Betöltő képernyő (preloader) elrejtése ---
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Kis késleltetés, hogy ne villanjon be a tartalom túl hamar
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            preloader.addEventListener('transitionend', () => preloader.style.display = 'none');
+        }, 200);
     }
 });

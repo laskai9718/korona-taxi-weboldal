@@ -15,15 +15,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <div class="spinner"></div>
+        <p>Betöltés...</p>
+    </div>
+</div>
     <header>
 <nav>
     <div class="logo-container">
-        <img src="static/images/koronalogo.jpg" alt="Korona Taxi logó" class="logo-img">
+        <img src="static/images/koronalogo.png" alt="Korona Taxi logó" class="logo-img">
         <span class="site-title">Korona Taxi</span>
     </div>
     <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menü megnyitása">
         <i class="fas fa-bars"></i>
     </button>
+    <div class="nav-controls">
+        <button id="dark-mode-toggle" aria-label="Sötét/világos mód váltása">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+</button>
     <div class="main-nav-links" id="main-nav-links">
         <ul>
             <li><a href="#fooldal" class="blue-link"><i class="fas fa-home"></i> Főoldal</a></li>
@@ -32,7 +43,9 @@
             <li><a href="#kapcsolat" class="red-link"><i class="fas fa-phone"></i> Kapcsolat</a></li>
         </ul>
     </div>
+    </div>
 </nav>
+
     </header>
 
     <main>
@@ -257,25 +270,45 @@
                         </div>
                         <div class="contact-form-container" data-aos="fade-left">
                             <h3>Küldjön üzenetet</h3>
-                            <form id="contact-form" action="#" method="POST" class="contact-form">
-                                <div class="form-group">
-                                    <label for="name">Név:</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">E-mail cím:</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Üzenet:</label>
-                                    <textarea id="message" name="message" rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="submit-button">Küldés</button>
-                            </form>
+                            <form id="contact-form" action="process_form.php" method="POST" class="contact-form">
+    <div class="form-group">
+        <label for="name">Név:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail cím:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Üzenet:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="submit-button">Küldés</button>
+</form>
                         </div>
                     </div>
                 </div>
             </section>
+
+<section id="blog" data-aos="fade-up">
+    <div class="content-container">
+        <h2 style="text-align: center;">Blog</h2>
+        <div class="blog-grid">
+            <div class="blog-post" data-aos="fade-up" data-aos-delay="100">
+                <h3>Új szolgáltatás: Reptéri transzfer</h3>
+                <p>Mostantól elérhető a reptéri transzfer szolgáltatásunk. Fix áron, kényelmesen, időben szállítjuk utasainkat a Liszt Ferenc nemzetközi repülőtérre.</p>
+            </div>
+            <div class="blog-post" data-aos="fade-up" data-aos-delay="200">
+                <h3>Visszajelzések</h3>
+                <p>Visszajelzéseik nagyon fontosak számunkra! Kérjük, osszák meg velünk a véleményüket a honlapunkon.</p>
+            </div>
+            <div class="blog-post" data-aos="fade-up" data-aos-delay="300">
+                <h3>Környezetbarát taxik</h3>
+                <p>Cégünk elkötelezett a környezetvédelem mellett, ezért a flotta nagy részét hibrid és elektromos autók teszik ki.</p>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
