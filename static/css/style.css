@@ -124,6 +124,17 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
+/* Aktív menüpont stílusa görgetéskor */
+nav a.active-link {
+    opacity: 0.7;
+    cursor: default;
+    /* Az aláhúzást is "bekapcsolva" hagyjuk, hogy jelezze az aktivitást */
+    text-decoration: none;
+}
+
+nav a.active-link::after {
+    width: 100%;
+}
 
 .blue-link { color: var(--secondary-color); }
 .blue-link::after { background-color: var(--primary-color); }

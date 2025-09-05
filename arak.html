@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árak és Díjkalkulátor - Korona Taxi Tatabánya</title>
+    <meta name="description" content="Tekintse meg a Korona Taxi díjszabását és használja online díjkalkulátorunkat az utazás becsült költségének kiszámításához Tatabányán.">
+    <link rel="stylesheet" href="static/css/arak.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="static/images/koronalogo.png" alt="Korona Taxi logó" class="logo-img">
+                <span class="site-title">Korona Taxi</span>
+            </div>
+            
+            <div class="nav-controls">
+                <label class="theme-switch" for="dark-mode-checkbox" title="Sötét/világos mód váltása">
+                    <input type="checkbox" id="dark-mode-checkbox" />
+                    <div class="slider round"></div>
+                    <i class="fas fa-moon moon-icon"></i>
+                    <i class="fas fa-sun sun-icon"></i>
+                </label>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menü megnyitása">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="main-nav-links" id="main-nav-links">
+                <ul>
+                    <li><a href="index.html" class="blue-link"><i class="fas fa-home"></i> Főoldal</a></li>
+                    <li><a href="fullgaleria.html" class="red-link"><i class="fas fa-camera"></i> Galéria</a></li>
+                    <li><a href="index.html#informaciok" class="blue-link"><i class="fas fa-info-circle"></i> Információk</a></li>
+                    <li><a href="index.html#kapcsolat" class="red-link"><i class="fas fa-phone"></i> Kapcsolat</a></li>
+                    <li><a href="#" class="blue-link" style="cursor: default; opacity: 0.7;"><i class="fas fa-tags"></i> Árak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tarifak" data-aos="fade-up">
+            <div class="content-container">
+                <h2>Díjszabásunk</h2>
+                <p>Áraink átláthatóak és versenyképesek. Nincsenek rejtett költségek.</p>
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Szolgáltatás</th>
+                            <th>Díj</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alapdíj</td>
+                            <td>1 100 Ft</td>
+                        </tr>
+                        <tr>
+                            <td>Kilométerdíj (nappal és éjjel)</td>
+                            <td>440 Ft / km</td>
+                        </tr>
+                        <tr>
+                            <td>Várakozási díj</td>
+                            <td>110 Ft / perc</td>
+                        </tr>
+                        <tr>
+                            <td>Budapest, Liszt Ferenc Repülőtér</td>
+                            <td>25 000 Ft-tól (fix ár)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="kalkulator" data-aos="fade-up" data-aos-delay="200">
+            <div class="content-container">
+                <h2>Díjkalkulátor</h2>
+                <p>Számítsa ki előre utazása várható költségét! A kalkuláció becsült, tájékoztató jellegű.</p>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="distance">Távolság (km)</label>
+                        <input type="number" id="distance" placeholder="Pl. 5.5" min="0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="waitingTime">Várakozás (perc)</label>
+                        <input type="number" id="waitingTime" placeholder="Pl. 10" min="0" value="0">
+                    </div>
+                    <button id="calculateBtn">Becsült ár számítása</button>
+                    <div id="result-container">
+                        <p>A fuvar becsült díja:</p>
+                        <h3 id="result">0 Ft</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/korona.taxi.9/" target="_blank" aria-label="Facebook oldalunk">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <p>© 2024 Korona Taxi. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/kalkulator.js"></script>
+
+    <button id="back-to-top" title="Vissza a lap tetejére">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>

@@ -68,6 +68,17 @@ nav {
     margin: 0 auto;
     padding: 0 20px;
 }
+/* Aktív menüpont stílusa görgetéskor */
+nav a.active-link {
+    opacity: 0.7;
+    cursor: default;
+    /* Az aláhúzást is "bekapcsolva" hagyjuk, hogy jelezze az aktivitást */
+    text-decoration: none;
+}
+
+nav a.active-link::after {
+    width: 100%;
+}
 
 .logo-container { display: flex; align-items: center; gap: 15px; }
 .logo-container .logo-img { height: 100px; width: 150px; transition: height 0.3s ease, width 0.3s ease; }

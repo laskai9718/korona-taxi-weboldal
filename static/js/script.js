@@ -129,3 +129,39 @@ window.addEventListener('load', () => {
         }, 200);
     }
 });
+// =======================================================
+    // --- Navigációs Menü Kiemelése Görgetéskor (Scrollspy) ---
+    // =======================================================
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.main-nav-links a');
+
+    // Ez a funkció csak akkor fusson, ha a főoldalon vagyunk (ahol léteznek ezek a szekciók)
+    if (sections.length > 0 && navLinks.length > 0) {
+        
+        const highlightMenu = () => {
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                // Azért vonunk ki 150-et, hogy a fix fejléc alatt jelenjen meg aktívnak a menüpont
+                if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                // Azért használjuk a link.getAttribute('href')-et, mert a .href a teljes URL-t adná vissza
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active-link');
+                }
+            });
+        };
+
+        // Eseményfigyelő hozzáadása a görgetéshez
+        window.addEventListener('scroll', highlightMenu);
+        // Oldal betöltésekor is fusson le, hogy az alaphelyzet is helyes legyen
+        highlightMenu(); 
+    }
