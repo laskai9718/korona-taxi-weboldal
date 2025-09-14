@@ -28,4 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
+
+// FEJLÉC ÁTMENET GÖRGETÉSRE
+const header = document.getElementById('main-header');
+
+if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+    });
+}
 });

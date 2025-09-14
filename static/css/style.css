@@ -1,23 +1,103 @@
 /* ==========================================================================
-   1. KÖZPONTI BEÁLLÍTÁSOK (:root)
+   1. KÖZPONTI BEÁLLÍTÁSOK (:root) - BŐVÍTETT VERZIÓ
    ========================================================================== */
 
 :root {
-    --szin-elsodleges: #ffc107;
-    --szin-elsodleges-hover: #e0a800;
-    --szin-sotet: #333;
-    --szin-vilagos: #fff;
-    --szin-hatter: #f4f4f4;
-    --szin-szoveg: #333;
-    --szin-szoveg-halvany: #555;
-    --szin-szurke-keret: #ccc;
-    --szin-szurke-hatter: #e9ecef;
-    
-    --betucsalad: Arial, sans-serif;
+    /* --- Betűtípusok --- */
+    --betucsalad-cimsor: 'Poppins', sans-serif;
+    --betucsalad-szoveg: 'Roboto', sans-serif;
     --sarok-lekerekites: 5px;
     --arnyek: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    /* --- Általános Világos Mód Színek --- */
+
+    --szin-vilagos: #ffffff;
+    --szin-szoveg: #000000;
+    --szin-szoveg-halvany: #de2626;
+    --szin-sotet: #212529;
+    --szin-szurke-keret: #000000;
+    --szin-szurke-hatter: #000000;
+    
+    /* --- Navbar Színek --- */
+    --navbar-hatter: #e2e4fa;
+    --navbar-szoveg: #ffffff;
+    
+    /* --- Gomb: CTA (Fő Gomb) --- */
+    --gomb-cta-hatter: #ff5b5b;
+    --gomb-cta-szoveg: #000000;
+    --gomb-cta-hatter-hover: #504aff;
+    --gomb-cta-szoveg-hover: #ffffff;
+
+    /* --- Gomb: Navigáció --- */
+    --gomb-nav-hatter: #ffffff;
+    --gomb-nav-szoveg: #000000;
+    --gomb-nav-hatter-hover: #000000;
+    --gomb-nav-szoveg-hover: #ffffff;
+
+    /* --- Gomb: Kalkulátor & Aktív Tarifaváltó --- */
+    --gomb-kalkulator-hatter: #ffffff;
+    --gomb-kalkulator-szoveg: #000000;
+    --gomb-kalkulator-hatter-hover: #ffaeae;
+
+    /* --- Gomb: Másodlagos (Galéria gomb) --- */
+    --gomb-masodlagos-hatter: var(--szin-sotet);
+    --gomb-masodlagos-szoveg: var(--szin-vilagos);
+    --gomb-masodlagos-keret: var(--szin-sotet);
+    --gomb-masodlagos-hatter-hover: transparent;
+    --gomb-masodlagos-szoveg-hover: var(--szin-sotet);
 }
 
+[data-theme="dark"] {
+    /* --- Általános Sötét Mód Színek --- */
+    --szin-hatter: #121212;
+    --szin-vilagos: #1e1e1e;
+    --szin-szoveg: #f1f1f1;
+    --szin-szoveg-halvany: #aaa;
+    --szin-sotet: #f1f1f1;
+    --szin-szurke-keret: #444;
+    --szin-szurke-hatter: #2a2a2a;
+    --arnyek: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    /* --- Navbar Színek Sötét Módban --- */
+    --navbar-hatter: #720303;
+    
+    /* --- Gomb: Navigáció Sötét Módban --- */
+    --gomb-nav-hatter: rgba(255,255,255,0.1);
+    
+    /* --- Gomb: Másodlagos Sötét Módban --- */
+    --gomb-masodlagos-hatter: var(--szin-szurke-hatter);
+    --gomb-masodlagos-szoveg: var(--szin-szoveg);
+    --gomb-masodlagos-keret: var(--szin-szurke-hatter);
+    --gomb-masodlagos-szoveg-hover: #443fd8;
+}
+
+/* SÖTÉT MÓD SZÍNEI */
+[data-theme="dark"] {
+    /* --- Általános Sötét Mód Színek --- */
+    --szin-hatter: #121212;
+    --szin-vilagos: #1e1e1e;
+    --navbar-szin: #720303;
+    --navbar-szöveg: #ffffff;
+    --szin-szoveg: #f1f1f1;
+    --szin-sotet: #f1f1f1;
+    --szin-szoveg-halvany: #aaa;
+    --szin-szurke-keret: #444;
+    --szin-szurke-hatter: #2a2a2a;
+    --arnyek: 0 5px 15px rgba(0, 0, 0, 0.3);
+    
+    /* --- logo card --- */
+    --kor-szin: #ff0000;
+
+    /* --- Navbar Színek Sötét Módban --- */
+    --navbar-hatter: var(--navbar-szin);
+    --navbar-szoveg: var(--navbar-szöveg);
+
+    /* --- Gomb Színek: Másodlagos Sötét Módban --- */
+    --gomb-masodlagos-hatter: var(--szin-szurke-hatter);
+    --gomb-masodlagos-szoveg: var(--szin-szoveg);
+    --gomb-masodlagos-keret: var(--szin-szurke-hatter);
+    --gomb-masodlagos-szoveg-hover: var(--szin-elsodleges);
+}
 /* ==========================================================================
    2. ALAP BEÁLLÍTÁSOK (Global Styles)
    ========================================================================== */
@@ -34,7 +114,7 @@ html {
 }
 
 body {
-    font-family: var(--betucsalad);
+    font-family: var(--betucsalad-szoveg);
     line-height: 1.6;
     background-color: var(--szin-hatter);
     color: var(--szin-szoveg);
@@ -42,53 +122,76 @@ body {
     display: flex;
     flex-direction: column;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--betucsalad-cimsor);
+}
 
 main {
     flex-grow: 1;
+    padding-top: 100px; /* ÚJRA ITT VAN, NAGYOBB ÉRTÉKKEL */
+    background-color: var(--szin-vilagos);
 }
 
 /* ==========================================================================
    3. FEJLÉC (Header)
    ========================================================================== */
 
+/* A 3. FEJLÉC részben cseréld le a meglévő szabályokat ezekre */
+
 header {
-    background-color: var(--szin-vilagos);
-    padding: 1rem 5%;
+    background-color: var(--navbar-hatter);
+    padding: 1.2rem 5%; /* NAGYOBB FÜGGŐLEGES TÉRKÖZ */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* VISSZAÁLLÍTVA */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
+    /* transition törölve */
 }
 
+/* A logó szövege maradhat, ahogy volt */
 header .logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--szin-sotet);
+    color: var(--navbar-szöveg); 
     text-decoration: none;
 }
 
+/* A navigáció ul listája maradhat */
 header .main-nav ul {
     list-style: none;
     display: flex;
+    gap: 10px; /* Kis térköz a gombok között */
 }
 
+/* A navigáció li eleme maradhat */
 header .main-nav ul li {
-    margin-left: 20px;
+    margin-left: 0; /* Ezt nullázzuk a 'gap' miatt */
 }
 
+/* EZ AZ ÚJ GOMB STÍLUS A MENÜPONTOKNAK */
 header .main-nav ul li a {
     text-decoration: none;
-    color: var(--szin-szoveg-halvany);
+    color: var(--gomb-nav-szoveg);
     font-weight: bold;
+    background-color: var(--gomb-nav-hatter);
+    padding: 10px 20px; /* Ettől lesz gomb formája */
+    border-radius: var(--sarok-lekerekites);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* GOMB HOVER ÁLLAPOTA */
+header .main-nav ul li a:hover {
+    background-color: var(--gomb-nav-hatter-hover);
+    color: var(--gomb-nav-szoveg-hover);
 }
 
 .cta-button {
-    background-color: var(--szin-elsodleges);
-    color: var(--szin-sotet);
+    background-color: var(--gomb-cta-hatter);
+    color: var(--gomb-cta-szoveg);
     padding: 10px 20px;
     border-radius: var(--sarok-lekerekites);
     text-decoration: none;
@@ -98,7 +201,8 @@ header .main-nav ul li a {
 }
 
 .cta-button:hover {
-    background-color: var(--szin-elsodleges-hover);
+    background-color: var(--gomb-cta-hatter-hover);
+    color: var(--gomb-cta-szoveg-hover);
 }
 
 .hamburger-menu {
@@ -110,6 +214,8 @@ header .main-nav ul li a {
    ========================================================================== */
 
 .hero {
+    background-color: var(--szin-vilagos);
+    padding: 40px 20px;
     background-color: var(--szin-vilagos);
     padding: 120px 20px 40px 20px;
     min-height: 450px;
@@ -124,14 +230,69 @@ header .main-nav ul li a {
     flex-direction: column;
     align-items: center;
 }
-
-.hero-image {
-    width: 220px;
-    height: 220px;
+.logoM a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--navbar-szöveg);
+    text-decoration: none;
+}
+/* ÚJ SZABÁLYOK A FORGÓ LOGÓHOZ */
+.logo-container {
+    width: 180px;
+    height: 180px;
+    perspective: 1000px;
+    position: relative;
     border-radius: 50%;
-    object-fit: cover;
-    border: 6px solid var(--szin-elsodleges);
+    border: 6px solid var(--kor-szin);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.logo-container:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.logo-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* Létrehozza a 3D-s teret */
+    transition: transform 0.8s; /* Forgatás sebessége */
+}
+
+.logo-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* A kártya hátoldala alapból rejtett */
+    display: flex; /* Középre igazítja a képet a körben */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ha a kép kilógna, levágja a körön kívüli részt */
+    border-radius: 50%; /* Biztosítja, hogy a felület is kör alakú legyen */
+}
+
+
+
+.logo-face-back {
+    transform: rotateY(180deg); /* A hátsó oldal alapból elforgatva van */
+}
+
+/* Sötét módban a keret színe is változzon */
+[data-theme="dark"] .logo-container {
+    border-color: var(--szin-elsodleges); /* Változó a sötét módhoz */
+}
+
+
+/* Ha az oldal sötét módban van, a kártya megfordul */
+[data-theme="dark"] .logo-card {
+    transform: rotateY(180deg);
+}
+.hero-logo {
+    width: 100%; /* A szülő konténer méretéhez igazodik */
+    height: 100%; /* A szülő konténer méretéhez igazodik */
+    object-fit: contain;
+    border-radius: 50%; /* Ez továbbra is körré teszi a képet */
 }
 
 .hero-content h1 {
@@ -233,13 +394,14 @@ header .main-nav ul li a {
 
 .tariff-switcher button {
     flex: 1; padding: 10px 15px; border: none;
-    background-color: transparent; cursor: pointer;
-    font-size: 1rem; font-weight: bold; color: var(--szin-szoveg-halvany);
+    background-color: var(--gomb-kalkulator-hatter); cursor: pointer;
+    font-size: 1rem; font-weight: bold; color: var(--gomb-kalkulator-szoveg);
     border-radius: 6px; transition: background-color 0.3s, color 0.3s;
 }
 
+
 .tariff-switcher button.active {
-    background-color: var(--szin-elsodleges);
+    background-color: var(--gomb-kalkulator-hatter-hover);
     color: var(--szin-sotet);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -335,7 +497,7 @@ footer a { color: var(--szin-elsodleges); text-decoration: none; }
 .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
 
 @keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
   70% { transform: scale(1.05); box-shadow: 0 0 10px 20px rgba(255, 193, 7, 0); }
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
 }
@@ -367,4 +529,41 @@ footer a { color: var(--szin-elsodleges); text-decoration: none; }
     .main-nav ul { flex-direction: column; gap: 2rem; text-align: center; }
     .main-nav ul li { margin-left: 0; }
     .main-nav ul li a { color: var(--szin-vilagos); font-size: 1.5rem; }
+}
+/* ==========================================================================
+   10. SÖTÉT MÓD (Dark Mode)
+   ========================================================================== */
+
+/* Finom átmenet a színváltáskor */
+body, header, .hero, .gallery-section, .social-section, 
+.calculator-container, .prices table, .btn-secondary, .footer {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* A váltógomb stílusa */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: var(--navbar-szöveg);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Alapból a nap ikon rejtett */
+.dark-mode-toggle .fa-sun {
+    display: none;
+}
+/* Alapból a hold ikon látható */
+.dark-mode-toggle .fa-moon {
+    display: block;
+}
+
+/* Sötét módban a hold ikon rejtett */
+[data-theme="dark"] .dark-mode-toggle .fa-moon {
+    display: none;
+}
+/* Sötét módban a nap ikon látható */
+[data-theme="dark"] .dark-mode-toggle .fa-sun {
+    display: block;
 }

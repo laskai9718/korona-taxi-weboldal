@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korona Taxi - Gyors és megbízható személyszállítás</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
 <header>
-    <div class="logo">
+    <div class="logoM">
         <a href="#">Korona Taxi</a>
     </div>
     
@@ -24,6 +26,10 @@
             <li><a href="#arak">Árak</a></li>
         </ul>
     </nav>
+        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Sötét mód váltása">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
 
     <a href="tel:+36301234567" class="cta-button">TAXI HÍVÁSA</a>
     
@@ -35,8 +41,16 @@
     <main>
 <section class="hero">
     <div class="hero-content">
-        <img src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Korona Taxi autó" class="hero-image">
-        
+        <div class="logo-container" id="flippable-logo">
+            <div class="logo-card">
+                <div class="logo-face logo-face-front">
+                    <img src="static/images/koronalogo.png" alt="Korona Taxi Logo Előlap" class="hero-logo">
+                </div>
+                <div class="logo-face logo-face-back">
+                    <img src="static/images/koronalogo2.png" alt="Korona Taxi Logo Hátlap" class="hero-logo">
+                </div>
+            </div>
+        </div>
         <h1>Korona Taxi</h1>
     </div>
 </section>
@@ -51,13 +65,13 @@
             <img src="static/images/korona1.jpg" alt="Modern taxi autó">
         </div>
         <div class="gallery-item">
-            <img src="https://images.pexels.com/photos/3764973/pexels-photo-3764973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tiszta és kényelmes autó belső">
+            <img src="static/images/korona2.jpg" alt="Modern taxi autó">
         </div>
         <div class="gallery-item">
-            <img src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Autó a városban éjszaka">
+            <img src="static/images/korona3.jpg" alt="Modern taxi autó">
         </div>
         <div class="gallery-item">
-            <img src="https://images.pexels.com/photos/1035762/pexels-photo-1035762.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Reptéri transzfer">
+            <img src="static/images/korona4.jpg" alt="Modern taxi autó">
         </div>
     </div>
 
@@ -140,6 +154,8 @@
     <script src="static/js/kalkulator.js"></script>
     <script src="static/js/animaciok.js"></script>
     <script src="static/js/hamburger.js"></script>
+    <script src="static/js/night.js"></script>
+    <script src="static/js/forog.js"></script>
 
 </body>
 </html>
