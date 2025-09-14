@@ -1,10 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Tarifák (ezeknek egyezniük kell a HTML táblázatban lévő árakkal)
-    const TARIFA = {
-        alapdij: 1100,      // Ft
-        kilometerdij: 440,  // Ft/km
-        varakozasidij: 110  // Ft/perc
+    // ÚJ: Tarifacsomagok egy objektumban
+    const TARIFCSOMAGOK = {
+        lakossagi: {
+            alapdij: 1100,
+            kilometerdij: 440,
+            varakozasidij: 110,
+            nev: 'Lakossági'
+        },
+        torzsutas: {
+            alapdij: 1000,      // Kedvezményes alapdíj
+            kilometerdij: 420,  // Kedvezményes km díj
+            varakozasidij: 100, // Kedvezményes várakozási díj
+            nev: 'Törzsutas'
+        }
     };
+
+    // Alapértelmezett tarifacsomag
+    let aktivTarifCsomag = 'lakossagi';
 
     // Elemek elérése
     const distanceInput = document.getElementById('distance');
@@ -12,30 +24,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateBtn = document.getElementById('calculateBtn');
     const resultDisplay = document.getElementById('result');
 
-    // Számítási funkció
+    // ÚJ: A díjszabás táblázat és a váltógombok elérése
+    const priceAlapdijElem = document.getElementById('price-alapdij');
+    const priceKmElem = document.getElementById('price-km');
+    const priceVarakozasElem = document.getElementById('price-varakozas');
+    const btnLakossagi = document.getElementById('btn-lakossagi');
+    const btnTorzsutas = document.getElementById('btn-torzsutas');
+
+    // ÚJ: Függvény a díjszabás táblázat frissítésére
+    function updatePriceTable() {
+        const csomag = TARIFCSOMAGOK[aktivTarifCsomag];
+
+        // Árak frissítése a táblázatban
+        priceAlapdijElem.textContent = `${csomag.alapdij} Ft`;
+        priceKmElem.textContent = `${csomag.kilometerdij} Ft/km`;
+        priceVarakozasElem.textContent = `${csomag.varakozasidij} Ft/perc`;
+
+        // Gombok 'active' class-ának kezelése
+        if (aktivTarifCsomag === 'lakossagi') {
+            btnLakossagi.classList.add('active');
+            btnTorzsutas.classList.remove('active');
+        } else {
+            btnTorzsutas.classList.add('active');
+            btnLakossagi.classList.remove('active');
+        }
+        
+        // Újraszámoljuk az árat a kalkulátorban, ha már van beírt érték
+        calculatePrice();
+    }
+
+    // MÓDOSÍTOTT: Számítási funkció
     function calculatePrice() {
-        // Értékek beolvasása és számmá alakítása
         const distance = parseFloat(distanceInput.value) || 0;
         const waitingTime = parseFloat(waitingTimeInput.value) || 0;
+        
+        // MÓDOSÍTÁS: Az aktív tarifacsomagot használja a számításhoz
+        const aktivCsomag = TARIFCSOMAGOK[aktivTarifCsomag];
 
-        // Ellenőrzés, hogy a távolság meg van-e adva
         if (distance <= 0) {
             resultDisplay.textContent = "0 Ft";
-            return; // Ne számoljon, ha nincs távolság
+            return;
         }
 
-        // Költség számítása
-        const travelCost = TARIFA.alapdij + (distance * TARIFA.kilometerdij);
-        const waitingCost = waitingTime * TARIFA.varakozasidij;
+        const travelCost = aktivCsomag.alapdij + (distance * aktivCsomag.kilometerdij);
+        const waitingCost = waitingTime * aktivCsomag.varakozasidij;
         const totalCost = Math.round(travelCost + waitingCost);
 
-        // Eredmény formázása és kiírása
         const formattedCost = new Intl.NumberFormat('hu-HU').format(totalCost);
         resultDisplay.textContent = `kb. ${formattedCost} Ft`;
     }
 
-    // Eseményfigyelő a gombra
-    if (calculateBtn) {
-        calculateBtn.addEventListener('click', calculatePrice);
-    }
+    // Eseményfigyelők
+    calculateBtn.addEventListener('click', calculatePrice);
+    
+    // ÚJ: Eseményfigyelők a váltógombokra
+    btnLakossagi.addEventListener('click', () => {
+        aktivTarifCsomag = 'lakossagi';
+        updatePriceTable();
+    });
+
+    btnTorzsutas.addEventListener('click', () => {
+        aktivTarifCsomag = 'torzsutas';
+        updatePriceTable();
+    });
+
+    // Oldal betöltésekor is frissítjük a táblázatot az alapértelmezett értékekkel
+    updatePriceTable();
 });

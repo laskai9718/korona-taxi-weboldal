@@ -3,336 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Korona Taxi - Megbízható és gyors taxiszolgáltatás Tatabányán</title>
-    <meta name="description" content="A Korona Taxi megbízható taxiszolgáltatása Tatabányán és környékén. Gyors fuvarok, reptéri transzfer és csomagszállítás. Rendeljen taxit azonnal!">
-    <meta name="keywords" content="taxi, taxiszolgáltatás, Tatabánya, taxi Tatabánya, reptéri transzfer, csomagszállítás, taxirendelés">
-    <link rel="stylesheet" href="static/css/style.css">
+    <title>Korona Taxi - Gyors és megbízható személyszállítás</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <div class="preloader" id="preloader">
-    <div class="preloader-content">
-        <div class="spinner"></div>
-        <p>Betöltés...</p>
-    </div>
-</div>
+
 <header>
-    <nav>
-        <div class="logo-container">
-            <img src="static/images/koronalogo.png" alt="Korona Taxi logó" class="logo-img">
-            <span class="site-title">Korona Taxi</span>
-        </div>
-        
-<div class="nav-controls">
-    <label class="theme-switch" for="dark-mode-checkbox" title="Sötét/világos mód váltása">
-        <input type="checkbox" id="dark-mode-checkbox" />
-        <div class="slider round"></div>
-        <i class="fas fa-moon moon-icon"></i>
-        <i class="fas fa-sun sun-icon"></i>
-    </label>
+    <div class="logo">
+        <a href="#">Korona Taxi</a>
+    </div>
     
-    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menü megnyitása">
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">Főoldal</a></li>
+            <li><a href="#galeria">Galéria</a></li>
+            <li><a href="#social">Social Media</a></li>
+            <li><a href="#arak">Árak</a></li>
+        </ul>
+    </nav>
+
+    <a href="tel:+36301234567" class="cta-button">TAXI HÍVÁSA</a>
+    
+    <button class="hamburger-menu" id="hamburger-toggle" aria-label="Menü megnyitása">
         <i class="fas fa-bars"></i>
     </button>
-</div>
-
-        <div class="main-nav-links" id="main-nav-links">
-            <ul>
-                <li><a href="#fooldal" class="blue-link"><i class="fas fa-home"></i> Főoldal</a></li>
-                <li><a href="#galeria" class="red-link"><i class="fas fa-camera"></i> Galéria</a></li>
-                <li><a href="#informaciok" class="blue-link"><i class="fas fa-info-circle"></i> Információk</a></li>
-                <li><a href="#kapcsolat" class="red-link"><i class="fas fa-phone"></i> Kapcsolat</a></li>
-                <li><a href="arak.html" class="blue-link"><i class="fas fa-tags"></i> Árak</a></li>
-            </ul>
-        </div>
-    </nav>
 </header>
 
     <main>
-        <section id="fooldal">
-            <div class="hero-section">
-                <div class="hero-content">
-                    <div class="hero-image" data-aos="fade-right">
-                        <img src="static/images/taxiback.jpeg" alt="Taxi image">
-                    </div>
-                    <div class="hero-text" data-aos="fade-left">
-                        <h2>Rugalmas és megbízható taxiszolgáltatás</h2>
-                        <p>Napi 24 órában állunk rendelkezésére!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="second-section">
-                <div class="hero-content">
-                    <div class="hero-text" data-aos="fade-right">
-                        <h2>Miért minket válasszon?</h2>
-                        <p>Több mint 30 éve a megbízhatóság és a biztonság jegyében utazhat velünk Tatabánya területén. Professzionális sofőrök, tiszta autók és pontos érkezés - ez a mi ígéretünk.</p>
-                    </div>
-                    <div class="hero-image" data-aos="fade-left">
-                        <img src="static/images/back2.jpg" alt="Biztonságos autózás">
-                    </div>
-                </div>
-            </div>
-            <div class="services-section" data-aos="fade-up">
-                <div class="content-container">
-                    <h2 style="text-align: center;">Szolgáltatásaink</h2>
-                    <div class="services-grid">
-                        <div class="service-item" data-aos="fade-up" data-aos-delay="200">
-                            <i class="fas fa-taxi"></i>
-                            <h3>Helyi és távolsági fuvarok</h3>
-                            <p>Gyors és kényelmes utazás Tatabányán és környékén, valamint országos fuvarok.</p>
-                        </div>
-                        <div class="service-item" data-aos="fade-up" data-aos-delay="400">
-                            <i class="fas fa-truck"></i>
-                            <h3>Csomagküldés</h3>
-                            <p>Diszkrét és megbízható csomag- és iratküldés a megadott címre, biztonságosan és időben.</p>
-                        </div>
-                        <div class="service-item" data-aos="fade-up" data-aos-delay="600">
-                            <i class="fas fa-building"></i>
-                            <h3>Reptéri transzfer</h3>
-                            <p>Kényelmes, fix áras transzfer a Liszt Ferenc nemzetközi repülőtérre, előre egyeztetett időpontban.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonials-section" data-aos="fade-up">
-                <div class="content-container content-section">
-                    <h2 style="text-align: center;">Ügyfeleink véleményei</h2>
-                    <div class="testimonial-slider">
-                        <div class="testimonial-card" data-aos="fade-right">
-                            <p>"Rugalmasak, mindig pontosan érkeznek és a sofőrök is nagyon segítőkészek. Csak ajánlani tudom!"</p>
-                            <cite>- Kovács Gábor</cite>
-                        </div>
-                        <div class="testimonial-card" data-aos="fade-right" data-aos-delay="200">
-                            <p>"Profi és gyors szolgáltatás, ha a reptérre megyek, mindig tőlük rendelek. Megéri!"</p>
-                            <cite>- Nagy Eszter</cite>
-                        </div>
-                        <div class="testimonial-card" data-aos="fade-right" data-aos-delay="400">
-                            <p>"A taxi tiszta, a sofőr udvarias volt, a fuvar ára pedig teljesen reális. Köszönöm!"</p>
-                            <cite>- Varga János</cite>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           <section id="galeria">
-    <div class="content-container">
-        <h2 style="text-align: center;" data-aos="fade-down">Galéria</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;" data-aos="fade-up">
-            Vessen egy pillantást autóinkra és csapatunkra!
-        </p>
-        <div class="image-gallery-preview">
-            <div class="slideshow-track">
-                <div class="slideshow-group">
-                    <a href="static/images/korona1.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona1.jpg" alt="Modern és tiszta autópark">
-                    </a>
-                    <a href="static/images/korona2.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona2.jpg" alt="Kényelmes belső tér">
-                    </a>
-                    <a href="static/images/korona3.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona3.jpg" alt="A sofőrök mindig segítőkészek">
-                    </a>
-                </div>
-                <div class="slideshow-group">
-                    <a href="static/images/korona4.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona4.jpg" alt="Rugalmas szolgáltatás">
-                    </a>
-                    <a href="static/images/korona5.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona5.jpg" alt="Profi és gyors szolgáltatás">
-                    </a>
-                    <a href="static/images/korona6.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona6.jpg" alt="Megbízható fuvarok">
-                    </a>
-                </div>
-                <div class="slideshow-group">
-                    <a href="static/images/korona7.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona7.jpg" alt="Reális árak">
-                    </a>
-                    <a href="static/images/korona8.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona8.jpg" alt="Udvarias sofőr">
-                    </a>
-                    <a href="static/images/korona9.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona9.jpg" alt="Tiszta autók">
-                    </a>
-                </div>
-                <div class="slideshow-group">
-                    <a href="static/images/korona10.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona10.jpg" alt="A Korona Taxi csapata">
-                    </a>
-                    <a href="static/images/korona11.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona11.jpg" alt="Profi sofőrök">
-                    </a>
-                    <a href="static/images/korona12.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona12.jpg" alt="Biztonságos utazás">
-                    </a>
-                </div>
-                <div class="slideshow-group">
-                    <a href="static/images/korona13.jpg" data-lightbox="galeria" class="gallery-preview-item">
-                        <img src="static/images/korona13.jpg" alt="Rendszeres karbantartás">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="fullgaleria.html" class="view-all-button" data-aos="zoom-in">Összes kép megtekintése</a>
-        </div>
+<section class="hero">
+    <div class="hero-content">
+        <img src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Korona Taxi autó" class="hero-image">
+        
+        <h1>Korona Taxi</h1>
     </div>
 </section>
 
-            <section id="informaciok">
-                <div class="content-container">
-                    <h2 style="text-align: center;" data-aos="fade-down">Céginformációk</h2>
-                    <p data-aos="fade-up">
-                        A Korona Taxi elkötelezett a minőségi és megbízható szolgáltatás mellett. Az alábbiakban
-                        áttekintheti cégünk hivatalos adatait és felügyeleti szerveit.
-                    </p>
-                    <div class="info-sections-grid">
-                        <div class="info-section">
-                            <h3>Céginformációk</h3>
-                            <ul>
-                                <li><i class="fas fa-city"></i><strong>Vállalkozás neve:</strong> Korona Taxi Fuvarszervező Egyéni Cég</li>
-                                <li><i class="fas fa-building"></i><strong>Rövidített neve:</strong> Korona Taxi EC.</li>
-                                <li><i class="fas fa-file-invoice"></i><strong>Cégjegyzékszám:</strong> 11-11-001498</li>
-                                <li><i class="fas fa-money-bill-alt"></i><strong>Adószám:</strong> 24479839-1-11</li>
-                                <li><i class="fas fa-copyright"></i><strong>Védjegyoltalom száma:</strong> 175424</li>
-                                <li><i class="fas fa-map-marker-alt"></i><strong>Székhely:</strong> 2800 Tatabánya Majakovszkij utca 42.</li>
-                                <li><i class="fas fa-map-marker-alt"></i><strong>Telephely:</strong> 2800 Tatabánya Mártírok útja 81/b.</li>
-                            </ul>
-                        </div>
-                        <div class="info-section">
-                            <h3>Működési adatok</h3>
-                            <ul>
-                                <li><i class="fas fa-taxi"></i><strong>Tevékenység megnevezése:</strong> 4932 személyszállítás (taxi), önálló diszpécserszolgálat</li>
-                                <li><i class="fas fa-phone"></i><strong>Telefonszám:</strong> +36 34 312 111, +36 34 777 777</li>
-                                <li><i class="fas fa-calendar-alt"></i><strong>Engedély időbeli hatálya:</strong> 2017.11.29.</li>
-                                <li><i class="fas fa-map-marked-alt"></i><strong>Engedélyezett működési terület:</strong> Komárom-Esztergom megye</li>
-                                <li><i class="fas fa-car"></i><strong>Szerződött gépkocsik száma:</strong> 20db</li>
-                                <li><i class="fas fa-shield-alt"></i><strong>Vagyoni biztosíték:</strong> 1.000.000 FT</li>
-                                <li><i class="fas fa-id-card"></i><strong>Tevékenységi engedély száma:</strong> D-11-1</li>
-                            </ul>
-                        </div>
-                        <div class="info-section">
-                            <h3>Vezetőség és Elérhetőségek</h3>
-                            <ul>
-                                <li><i class="fas fa-user-tie"></i><strong>Ügyvezető:</strong> Balogh Csaba</li>
-                                <li><i class="fas fa-user-tie"></i><strong>Szakmai vezető:</strong> Balogh Csaba</li>
-                                <li><i class="fas fa-gavel"></i><strong>Panaszkezelő és etikai vezető:</strong> Balogh Csaba</li>
-                                <li><i class="fas fa-phone"></i><strong>Panaszkezelő telefonszáma:</strong> 06-50/133-3633</li>
-                                <li><i class="fas fa-user-shield"></i><strong>Adatvédelmi tisztségviselő:</strong> Galambosné Balogh Mariann</li>
-                                <li><i class="fas fa-phone-square-alt"></i><strong>Adatvédelmi telefonszáma:</strong> 06-20/515-5023</li>
-                                <li><i class="fas fa-envelope"></i><strong>Email:</strong> koronataxi130@gmail.com</li>
-                            </ul>
-                        </div>
-                        <div class="info-section">
-                            <h3>Felügyeleti szervek</h3>
-                            <ul>
-                                <li><i class="fas fa-university"></i><strong>Nemzeti Közlekedési Hatóság:</strong> 2800 Tatabánya Táncsics Mihály utca 1/D</li>
-                                <li><i class="fas fa-balance-scale"></i><strong>Nemzeti Fogyasztóvédelmi Hatóság:</strong> 2800 Tatabánya Bárdos László út 2.</li>
-                                <li><i class="fas fa-phone-alt"></i><strong>Fogyasztóvédelmi Hatóság telefonszáma:</strong> 06-34/309-303</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section id="torzsutas-kartya">
-                <div class="content-container">
-                    <h2 style="text-align: center;">Törzsutas kártya</h2>
-                    <div class="loyalty-cards-container">
-                        <div class="loyalty-card-item" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="static/images/loyalty1.jpg" alt="Törzsutas kártya előlapja">
-                        </div>
-                        <div class="loyalty-card-item" data-aos="zoom-in" data-aos-delay="400">
-                            <img src="static/images/loyalty2.jpg" alt="Törzsutas kártya hátlapja">
-                        </div>
-                    </div>
-                </div>
-            </section>
+<section id="galeria" class="gallery-section fade-in-element">
+    <h2>Galéria</h2>
+    <p>Tekintse meg modern és kényelmes járműveinket!</p>
 
-            <section id="kapcsolat">
-                <div class="content-container contact-page">
-                    <h2 style="text-align: center;" data-aos="fade-down">Kapcsolatfelvétel</h2>
-                    <p class="intro-text" data-aos="fade-up">
-                        Lépjen velünk kapcsolatba bátran 6-22 óráig a megadott elérhetőségeinken, vagy használja az alábbi űrlapot üzenetküldésre.
-                    </p>
-                    <div class="contact-grid">
-                        <div class="contact-info" data-aos="fade-right">
-                            <h3>Elérhetőségeink</h3>
-                            <ul>
-                                <li><i class="fas fa-phone-alt"></i><strong>Telefonszám:</strong> <a href="tel:+3634312111">+36 34 312-111</a> / <a href="tel:+3634777777">+36 34 777-777</a></li>
-                                <li><i class="fas fa-envelope"></i><strong>E-mail:</strong> <a href="mailto:koronataxi1@t-online.hu">koronataxi1@t-online.hu</a></li>
-                                <li><i class="fas fa-map-marker-alt"></i><strong>Cím:</strong> 2800 Tatabánya Majakovszkij utca 42.</li>
-                                <li><i class="fas fa-clock"></i><strong>Nyitvatartás:</strong> Minden nap 6:00 - 22:00</li>
-                            </ul>
-                            <div class="map-container" data-aos="fade-up" data-aos-delay="200">
-                                <h3>Megközelíthetőség</h3>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2691.801655653492!2d18.39765131562945!3d47.58529367918545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47622831d1d23451%3A0x633d6b05777421c6!2sTatab%C3%A1nya%2C%20Taxi%20u.%201%2C%202800!5e0!3m2!1shu!2shu!4v1625078508499!5m2!1shu!2shu" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </div>
-                        </div>
-                        <div class="contact-form-container" data-aos="fade-left">
-                            <h3>Küldjön üzenetet</h3>
-                            <form id="contact-form" action="process_form.php" method="POST" class="contact-form">
-    <div class="form-group">
-        <label for="name">Név:</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">E-mail cím:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="message">Üzenet:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="submit-button">Küldés</button>
-</form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-<section id="blog" data-aos="fade-up">
-    <div class="content-container">
-        <h2 style="text-align: center;">Blog</h2>
-        <div class="blog-grid">
-            <div class="blog-post" data-aos="fade-up" data-aos-delay="100">
-                <h3>Új szolgáltatás: Reptéri transzfer</h3>
-                <p>Mostantól elérhető a reptéri transzfer szolgáltatásunk. Fix áron, kényelmesen, időben szállítjuk utasainkat a Liszt Ferenc nemzetközi repülőtérre.</p>
-            </div>
-            <div class="blog-post" data-aos="fade-up" data-aos-delay="200">
-                <h3>Visszajelzések</h3>
-                <p>Visszajelzéseik nagyon fontosak számunkra! Kérjük, osszák meg velünk a véleményüket a honlapunkon.</p>
-            </div>
-            <div class="blog-post" data-aos="fade-up" data-aos-delay="300">
-                <h3>Környezetbarát taxik</h3>
-                <p>Cégünk elkötelezett a környezetvédelem mellett, ezért a flotta nagy részét hibrid és elektromos autók teszik ki.</p>
-            </div>
+    <div class="gallery-grid gallery-preview">
+        <div class="gallery-item">
+            <img src="static/images/korona1.jpg" alt="Modern taxi autó">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.pexels.com/photos/3764973/pexels-photo-3764973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tiszta és kényelmes autó belső">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Autó a városban éjszaka">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.pexels.com/photos/1035762/pexels-photo-1035762.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Reptéri transzfer">
         </div>
     </div>
+
+    <div class="text-center mt-4">
+        <a href="galeria.html" class="btn-secondary">Tovább a teljes galériára</a>
+    </div>
+
+</section>
+<section id="social" class="social-section fade-in-element">
+    <h2>Kövess Minket!</h2>
+    <p>Ne maradj le a legfrissebb híreinkről és exkluzív ajánlatainkról.</p>
+    <div class="social-links">
+        <a href="https://tiktok.com/your-profile" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://instagram.com/your-profile" target="_blank" class="social-icon instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/your-profile" target="_blank" class="social-icon facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+</section>
+        
+<section id="pricing-wrapper" class="pricing-calculator-wrapper fade-in-element">
+
+    <section id="arak" class="prices">
+        <h2>Díjszabásunk</h2>
+        
+        <div class="tariff-switcher">
+            <button id="btn-lakossagi" class="active">Lakossági</button>
+            <button id="btn-torzsutas">Törzsutas</button>
+        </div>
+
+        <p>Utazzon velünk átlátható, fix tarifákkal Tatabánya területén.</p>
+        <table>
+            <tr>
+                <td>Alapdíj</td>
+                <td id="price-alapdij">1 100 Ft</td>
+            </tr>
+            <tr>
+                <td>Kilométerdíj</td>
+                <td id="price-km">440 Ft/km</td>
+            </tr>
+            <tr>
+                <td>Várakozási díj</td>
+                <td id="price-varakozas">110 Ft/perc</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="kalkulator" class="calculator-section">
+        <h2>Viteldíj Kalkulátor</h2>
+        <p>Tervezze meg előre utazása várható költségét!</p>
+        <div class="calculator-container">
+            <div class="form-group">
+                <label for="distance">Utazás hossza (km)</label>
+                <input type="number" id="distance" placeholder="pl. 5.5" min="0">
+            </div>
+            <div class="form-group">
+                <label for="waitingTime">Várakozás (perc)</label>
+                <input type="number" id="waitingTime" placeholder="pl. 10" min="0">
+            </div>
+            <button id="calculateBtn">Számol</button>
+            <div class="result-area">
+                <h3>A viteldíj várható összege:</h3>
+                <p id="result">0 Ft</p>
+            </div>
+        </div>
+    </section>
+
 </section>
     </main>
+<footer id="kapcsolat" class="fade-in-element">
+    <p>&copy; 2025 Korona Taxi - Minden jog fenntartva.</p>
+    <p>Telefonszám: <a href="tel:+36301234567">+36 30 123 4567</a></p>
+</footer>
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/korona.taxi.9/" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
-        <p>© 2024 Korona Taxi. Minden jog fenntartva.</p>
-    </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="static/js/script.js"></script>
-
-<button id="back-to-top" title="Vissza a lap tetejére">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <script src="static/js/kalkulator.js"></script>
+    <script src="static/js/animaciok.js"></script>
+    <script src="static/js/hamburger.js"></script>
 
 </body>
 </html>
